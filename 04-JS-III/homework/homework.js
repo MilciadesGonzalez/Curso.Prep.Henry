@@ -10,6 +10,7 @@ function devolverPrimerElemento(array) {
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
+  return array[array.length -1];
 }
 
 
@@ -57,6 +58,7 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
+  return palabras.join(" ");
 }
 
 
@@ -122,6 +124,14 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
+  if(arguments.length < 1){
+    return 0;
+  } 
+  var total = 1;
+  for(var i = 0; i < arguments.length; i++) {
+    total = total * arguments[i];
+  }
+  return total;
 }
 
 
@@ -190,16 +200,15 @@ function mesesDelAño(array) {
   var nuevoA = [];
   var msj;
   for (let i = 0; i < array.length; i++) {
-    if (array[i] == "Enero" || array[i] == "Marzo" || array[i] == "Noviembre") {
-      nuevoA[i] = array[i];
+    if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
+      nuevoA.push(array[i]);
     }
   }
   for (let i = 0; i < nuevoA.length; i++) {
     if (nuevoA.length < 3) {
-      msj = "No se encontraron los meses pedidos";
-      return msj;
+      return "No se encontraron los meses pedidos";
     } else {
-      return array;
+      return nuevoA;
     }
   }
 }
@@ -213,7 +222,7 @@ function mayorACien(array) {
 
   for (let i = 0; i < array.length; i++) {
     if (array[i] > 100) {
-      nuevo[i] = array[i];
+      nuevo.push(array[i]);
     }
   }
   return nuevo;
@@ -228,6 +237,23 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
+  var array = [];
+  var suma = numero;
+  for(var i= 0; i<10; i++) {
+    suma = suma + 2;
+    if(suma === i){
+      break;
+    } 
+    else {
+      array.push(suma);
+    }
+  }
+  if(i < 10) {
+    return 'Se interrumpió la ejecución';
+  }
+  else {
+      return array;
+  }
 }
 
 
@@ -238,6 +264,18 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+  var array = [];
+  var suma = numero;
+  for(var i= 0; i<10; i++) {
+    if(i === 5){
+      continue;
+    }
+    else {
+      suma = suma + 2;
+      array.push(suma);
+    }
+  }
+  return array;
 }
 
 
